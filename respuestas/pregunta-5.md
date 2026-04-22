@@ -1,0 +1,1 @@
+MATCH (e:Empresa) WITH count(e) AS totalEmpresas MATCH (amigo:Persona)-[:TRABAJA_EN]->(e2:Empresa) WITH amigo, totalEmpresas, count(DISTINCT e2) AS empresasTrabajadas WHERE empresasTrabajadas = totalEmpresas MATCH (p:Persona)-[:AMIGO_DE]-(amigo) RETURN DISTINCT p.nombre
